@@ -7,6 +7,7 @@ jobs:
   update-mirror:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       # just delete the branch and recreate it from the current state of main.
       - run: |
           git push origin --delete main-mirror
