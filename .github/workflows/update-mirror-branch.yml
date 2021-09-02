@@ -1,0 +1,13 @@
+name: update-mirror-branch
+on:
+  push:
+    branches:
+      - main
+jobs:
+  update-mirror:
+    runs-on: ubuntu-latest
+    steps:
+      # just delete the branch and recreate it from the current state of main.
+      - run: |
+          git push origin --delete main-mirror
+          git push origin main:main-mirror
